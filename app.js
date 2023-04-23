@@ -5,6 +5,9 @@ import mongoose from "mongoose";
 mongoose.connect('mongodb://127.0.0.1:27017/bookspace');
 
 import AuthController from "./controllers/users/auth-controller.js";
+import BookController from "./controllers/books/books-controller.js";
+import ReviewsController from "./controllers/reviews/reviews-controller.js";
+import UserBooksController from "./controllers/user-books/user-books-controller.js";
 
 const app = express()
 app.use(
@@ -23,6 +26,9 @@ app.use(
 app.use(express.json());
 
 AuthController(app);
+BookController(app);
+ReviewsController(app);
+UserBooksController(app);
 
 app.get('/hello', (req, res) => {res.send('Hello World!')})
 

@@ -6,7 +6,14 @@ const usersSchema = new mongoose.Schema(
         firstname: { type: String },
         lastname: { type: String },
         email: { type: String },
-        role: {type: String, enum: ["Reader", "Author", "Critic"]}
+        favorites: { type: Array },
+        currentlyReading: { type: Array },
+        followers: { type: Array },
+        following: { type: Array },
+        reviews: { type: Array },
+        role: {type: String, enum: ["Reader", "Author", "Critic"]},
+        recommendation: { type: String },
+        books: { type: Array },
     },
     { collection: "users" }
 );

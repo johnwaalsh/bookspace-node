@@ -14,6 +14,9 @@ export const findUserByUsername = (username) =>
 export const findUserByCredentials = (username, password) =>
     usersModel.findOne({ username, password });
 
+export const findUsersByBookRec = (bookID) =>
+    usersModel.find({"recommendation": bookID});
+
 
 export const createUser = (user) => usersModel.create(user);
 
@@ -23,3 +26,5 @@ export const updateUser = (uid, user) =>
 
 
 export const deleteUser = (uid) => usersModel.deleteOne({ _id: uid });
+
+export const findAllCritics = () => usersModel.find({"role": "Critic"});
